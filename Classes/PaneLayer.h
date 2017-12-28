@@ -1,14 +1,14 @@
 #pragma once
 #include "cocos2d.h"
 using namespace cocos2d;
-/*ÅÚÌ¨²ã*/
-class CannonLayer :
+/*¹¦ÄÜ²ã*/
+class PaneLayer :
 	public CCLayer
 {
 public:
-	CannonLayer(void);
-	CREATE_FUNC(CannonLayer);
+	PaneLayer(void);
+	CREATE_FUNC(PaneLayer);
 	virtual bool init();
-	virtual ~CannonLayer(void);
+	virtual ~PaneLayer(void);
 };
 
