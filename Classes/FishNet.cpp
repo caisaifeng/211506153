@@ -45,7 +45,7 @@ float FishNet::getSpeed(int type)
 		speed = 410;
 		break;
 	case 6:
-		speed = 450;
+		speed = 390;
 		break;
 	default:
 		break;

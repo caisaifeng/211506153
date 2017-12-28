@@ -5,7 +5,7 @@
 //  @ Project : FishingJoy
 //  @ File Name : StaticData.h
 //  @ Date : 2017/9/29
-//  @ Author :²ÌÈü·ï
+//  @ Author : ²ÌÈü·ï
 //
 //
 
@@ -28,7 +28,8 @@ USING_NS_CC;
 #define STATIC_DATA_SIZE(key) StaticData::sharedStaticData()->sizeFromKey(key)
 
 
-class StaticData:public CCObject {
+class StaticData:
+	public CCObject {
 public:
 	static StaticData* sharedStaticData();
 	static void purge();
@@ -39,8 +40,6 @@ public:
 	CCPoint pointFromKey(const string& key);
 	CCRect rectFromKey(const string& key);
 	CCSize sizeFromKey(const string& key);
-
-	
 protected:
 	CCDictionary* _dictionary;
 	string _staticFileName;

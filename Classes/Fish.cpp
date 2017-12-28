@@ -1,6 +1,7 @@
 #include "Fish.h"
+
 enum{
-	k_Action_Animate =0,
+	k_Action_Animate = 0,
 	k_Action_MoveTo
 };
 
@@ -40,7 +41,6 @@ bool Fish::init(FishType type /* = k_Fish_Type_SmallFish */)
 			type = k_Fish_Type_SmallFish;
 		}
 		setType(type);
-		//_type = type
 		CCString* animationName = CCString::createWithFormat("fish_animation_%02d", _type + 1);
 		CCAnimation* animation = CCAnimationCache::sharedAnimationCache()->animationByName(animationName->getCString());
 		CC_BREAK_IF(!animation);
@@ -74,7 +74,7 @@ void Fish::beCaught(){
 	stopActionByTag(k_Action_MoveTo);
 	CCCallFunc* callFunc = CCCallFunc::create(this,callfunc_selector(Fish::beCaught_CallFunc));
 	CCSequence* sequence = CCSequence::create(CCDelayTime::create(1.0f),callFunc,NULL);
-	CCBlink* blink = CCBlink::create(1.0f,5);
+	CCBlink* blink = CCBlink::create(1.0f, 8);
 	CCSpawn* spawn = CCSpawn::create(sequence, blink, NULL);
 	_fishSprite->runAction(spawn);
 }
@@ -83,33 +83,31 @@ void Fish::beCaught_CallFunc()
 {
 	if(isRunning())
 	{
-		getParent()->removeChild(this,true);
-		//this->removeFromParentAndCleanup(true);
+		getParent()->removeChild(this,false);
 	}
 }
 
 void Fish::moveTo(CCPoint destination)
-{	
-	CCPoint point =getParent()->convertToWorldSpace(this->getPosition());
-	float duration =ccpDistance(destination,point)/getSpeed();
-	CCMoveTo *moveTo =CCMoveTo::create(duration,destination);
-	CCCallFunc *callFunc =CCCallFunc::create(this,callfunc_selector(Fish::moveEnd));
-	CCSequence *sequence =CCSequence::create(moveTo,callFunc,NULL);
+{
+	CCPoint point = getParent()->convertToWorldSpace(this->getPosition());
+	float duration = ccpDistance(destination, point) / getSpeed();
+	CCMoveTo *moveTo = CCMoveTo::create(duration, destination);
+	CCCallFunc *callFunc = CCCallFunc::create(this, callfunc_selector(Fish::moveEnd));
+	CCSequence *sequence = CCSequence::create(moveTo, callFunc, NULL);
 	sequence->setTag(k_Action_MoveTo);
 	this->runAction(sequence);
 }
 
 void Fish::moveEnd()
 {
-	if(isRunning())
+	if (isRunning())
 	{
 		this->stopActionByTag(k_Action_MoveTo);
-		getParent()->removeChild(this,false);
+		getParent()->removeChild(this, false);
 	}
 }
 
 CCSize Fish::getSize()
 {
-	return _fishSprite->displayFrame()->getRect().size;
-
+	return _fishSprite -> displayFrame() -> getRect().size;
 }
