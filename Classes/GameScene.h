@@ -1,30 +1,29 @@
 #pragma once
-#include"cocos2d.h"
-#include"BackgroundLayer.h"
-#include"FishLayer.h"
-#include"MenuLayer.h"
-#include"CannonLayer.h"
-#include"PaneLayer.h"
+#include "cocos2d.h"
+#include "BackgroundLayer.h"
+#include "FishLayer.h"
+#include "MenuLayer.h"
+#include "CannonLayer.h"
+#include "TouchLayer.h"
 
-using namespace cocos2d;
-/*游戏场景类*/
-class GameScene :public CCScene
+USING_NS_CC;
+
+class GameScene :
+	public CCScene
 {
 public:
 	GameScene(void);
 	CREATE_FUNC(GameScene)
-	virtual~GameScene(void);
-	/*初始化函数，完成各个层的创建和加载*/
 	virtual bool init();
+	virtual ~GameScene();
+	void cannonAimAt(CCPoint target);
+	void cannonShootTo(CCPoint target);
 protected:
-	/*数据成员*/
-	BackgroundLayer *backgroundLayer;/*背景层*/
-	CannonLayer *cannonLayer;/*炮台层*/
-	FishLayer *fishLayer;/*鱼层*/
-	PaneLayer *paneLayer;/*功能层*/
-	MenuLayer *menuLayer;/*菜单层*/
+	BackgroundLayer* _backgroundLayer;
+	FishLayer* _fishLayer;
+	MenuLayer* _menuLayer;
+	CannonLayer* _cannonLayer;
+	TouchLayer* _touchLayer;
 	void preloadResources(void);
-	
-
 };
 
