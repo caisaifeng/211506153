@@ -57,13 +57,13 @@
     <ClCompile Include="..\Classes\Counter.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\FishJoyData.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\GoldCounterLayer.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\PanelLayer.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\FishJoyData.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,13 +119,13 @@
     <ClInclude Include="..\Classes\Counter.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\FishJoyData.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
     <ClInclude Include="..\Classes\GoldCounterLayer.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\PanelLayer.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\FishJoyData.h">
       <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
